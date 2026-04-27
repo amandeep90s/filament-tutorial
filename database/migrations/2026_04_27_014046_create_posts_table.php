@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('color');
             $table->string('image');
             $table->text('body');
+            $table->json('tags')->nullable();
             $table->boolean('is_published')->default(false);
             $table->dateTime('published_at')->nullable();
             $table->timestamps();
