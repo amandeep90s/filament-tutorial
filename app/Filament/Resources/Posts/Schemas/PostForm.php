@@ -11,7 +11,10 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Group;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
+use Filament\Support\Icons\Heroicon;
 
 class PostForm
 {
@@ -19,15 +22,25 @@ class PostForm
     {
         return $schema
             ->components([
-                TextInput::make('title')->required(),
-                TextInput::make('slug')->required(),
-                Select::make('category_id')->label('Category')->options(Category::all()->pluck('name', 'id'))->required(),
-                ColorPicker::make('color')->required(),
-                MarkdownEditor::make('body')->columnSpan(2)->required(),
-                FileUpload::make('image')->disk('public')->directory('posts')->image()->columnSpan(2),
-                TagsInput::make('tags'),
-                Toggle::make('is_published')->label('Published'),
-                DatePicker::make('published_at')->label('Published At'),
-            ]);
+                Section::make('Fields')->description('Fill all the * fields')->icon(Heroicon::RocketLaunch)->schema([
+                    Group::make()->schema([
+                        TextInput::make('title')->rules(['required', 'min:3', 'max:255']),
+                        TextInput::make('slug')->rules(['required'])->unique()->validationMessages(['unique' => 'The slug must be unique.']),
+                        Select::make('category_id')->label('Category')->options(Category::all()->pluck('name', 'id'))->rules(['required']),
+                        ColorPicker::make('color')->rules(['required']),
+                    ])->columns(2),
+                    MarkdownEditor::make('body')->rules(['required']),
+                ])->columnSpan(2),
+                Group::make()->schema([
+                    Section::make('Image Upload')->schema([
+                        FileUpload::make('image')->disk('public')->directory('posts')->image(),
+                    ]),
+                    Section::make('Meta Info')->schema([
+                        TagsInput::make('tags'),
+                        Toggle::make('is_published')->label('Published'),
+                        DatePicker::make('published_at')->label('Published At'),
+                    ]),
+                ])->columnSpan(1),
+            ])->columns(3);
     }
 }
