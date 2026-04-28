@@ -7,7 +7,6 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TagsInput;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Group;
@@ -57,7 +56,9 @@ class PostForm
                             ]),
                         Section::make('Meta Info')
                             ->schema([
-                                TagsInput::make('tags'),
+                                Select::make('tags')
+                                    ->relationship('tags', 'name')
+                                    ->multiple(),
                                 Toggle::make('is_published')->label('Published'),
                                 DatePicker::make('published_at')->label('Published At'),
                             ]),

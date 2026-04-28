@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -26,8 +26,8 @@ use Illuminate\Support\Carbon;
 #[Fillable(['name'])]
 class Tag extends Model
 {
-    public function postTags(): HasMany
+    public function posts(): BelongsToMany
     {
-        return $this->hasMany(PostTag::class);
+        return $this->belongsToMany(Post::class, 'post_tags');
     }
 }

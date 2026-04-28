@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -39,7 +39,7 @@ use Illuminate\Support\Carbon;
  *
  * @mixin \Eloquent
  */
-#[Fillable(['title', 'slug', 'category_id', 'color', 'image', 'body', 'tags', 'is_published', 'published_at'])]
+#[Fillable(['title', 'slug', 'category_id', 'color', 'image', 'body', 'is_published', 'published_at'])]
 class Post extends Model
 {
     /**
@@ -50,7 +50,6 @@ class Post extends Model
     protected function casts(): array
     {
         return [
-            'tags' => 'array',
             'is_published' => 'boolean',
             'published_at' => 'datetime',
         ];
@@ -64,8 +63,8 @@ class Post extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function postTags(): HasMany
+    public function tags(): BelongsToMany
     {
-        return $this->hasMany(PostTag::class);
+        return $this->belongsToMany(Tag::class, 'post_tags');
     }
 }
