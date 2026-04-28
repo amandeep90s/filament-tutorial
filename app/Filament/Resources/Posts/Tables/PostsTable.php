@@ -17,11 +17,12 @@ class PostsTable
         return $table
             ->columns([
                 ImageColumn::make('image')->disk('public'),
-                TextColumn::make('title'),
-                TextColumn::make('slug'),
-                TextColumn::make('category.name')->label('Category'),
+                TextColumn::make('title')->sortable(),
+                TextColumn::make('slug')->sortable(),
+                TextColumn::make('category.name')->label('Category')->sortable(),
                 ColorColumn::make('color')->label('Color'),
-            ])
+                TextColumn::make('created_at')->label('Created At')->dateTime()->sortable(),
+            ])->defaultSort('title', 'asc')
             ->filters([
                 //
             ])
