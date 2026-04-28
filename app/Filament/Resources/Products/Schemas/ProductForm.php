@@ -7,9 +7,9 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Schemas\Components\Wizard\Step;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Wizard;
+use Filament\Schemas\Components\Wizard\Step;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 
@@ -73,7 +73,7 @@ class ProductForm
                     ->label('Save Product')
                     ->button()
                     ->color('primary')
-                    ->submit('save'))
+                    ->submit('save')),
         ]);
     }
 }
