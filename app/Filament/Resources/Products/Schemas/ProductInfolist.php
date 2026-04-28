@@ -5,7 +5,7 @@ namespace App\Filament\Resources\Products\Schemas;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
-use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 
@@ -15,55 +15,64 @@ class ProductInfolist
     {
         return $schema
             ->components([
-                Section::make('Product Information')
-                    ->schema([
-                        TextEntry::make('id')
-                            ->label('Product Id')
-                            ->weight('bold')
-                            ->color('primary'),
-                        TextEntry::make('name')
-                            ->label('Product Name')
-                            ->weight('bold')
-                            ->color('primary'),
-                        TextEntry::make('sku')
-                            ->label('Product SKU')
-                            ->badge()
-                            ->weight('bold')
-                            ->color('success'),
-                        TextEntry::make('description')
-                            ->label('Product Description')
-                            ->weight('bold')
-                            ->color('primary'),
-                        TextEntry::make('created_at')
-                            ->label('Product Creation Date')
-                            ->weight('bold')
-                            ->color('info')
-                            ->date('m/d/Y')
-                    ])->columnSpanFull(),
-                Section::make('Pricing & Stock')
-                    ->schema([
-                        TextEntry::make('price')
-                            ->label('Product Price')
-                            ->icon(Heroicon::CurrencyDollar)
-                            ->weight('bold')
-                            ->color('primary'),
-                        TextEntry::make('stock')
-                            ->label('Product Stock')
-                            ->weight('bold')
-                            ->color('primary'),
-                    ])->columnSpanFull(),
-                Section::make('Media & Status')
-                    ->schema([
-                        ImageEntry::make('image')
-                            ->label('Product Image')
-                            ->disk('public'),
-                        IconEntry::make('is_active')
-                            ->label('Is Active?')
-                            ->boolean(),
-                        IconEntry::make('is_featured')
-                            ->label('Is Featured?')
-                            ->boolean(),
-                    ])->columnSpanFull(),
+                Tabs::make('Tabs')->tabs([
+                    Tabs\Tab::make("Product Information")
+                        ->icon(HeroIcon::InformationCircle)
+                        ->schema([
+                            TextEntry::make('id')
+                                ->label('Product Id')
+                                ->weight('bold')
+                                ->color('primary'),
+                            TextEntry::make('name')
+                                ->label('Product Name')
+                                ->weight('bold')
+                                ->color('primary'),
+                            TextEntry::make('sku')
+                                ->label('Product SKU')
+                                ->badge()
+                                ->weight('bold')
+                                ->color('success'),
+                            TextEntry::make('description')
+                                ->label('Product Description')
+                                ->weight('bold')
+                                ->color('primary'),
+                            TextEntry::make('created_at')
+                                ->label('Product Creation Date')
+                                ->weight('bold')
+                                ->color('info')
+                                ->date('m/d/Y')
+                        ]),
+                    Tabs\Tab::make("Pricing & Stock")
+                        ->icon(HeroIcon::CurrencyDollar)
+                        ->badge(10)
+                        ->badgeColor('info')
+                        ->schema([
+                            TextEntry::make('price')
+                                ->label('Product Price')
+                                ->icon(Heroicon::CurrencyDollar)
+                                ->weight('bold')
+                                ->color('primary'),
+                            TextEntry::make('stock')
+                                ->label('Product Stock')
+                                ->weight('bold')
+                                ->color('primary'),
+                        ]),
+                    Tabs\Tab::make("Media & Status")
+                        ->icon(HeroIcon::Photo)
+                        ->schema([
+                            ImageEntry::make('image')
+                                ->label('Product Image')
+                                ->disk('public'),
+                            IconEntry::make('is_active')
+                                ->label('Is Active?')
+                                ->boolean(),
+                            IconEntry::make('is_featured')
+                                ->label('Is Featured?')
+                                ->boolean(),
+                        ])
+                ])
+                    ->columnSpanFull()
+//                    ->vertical()
             ]);
     }
 }
