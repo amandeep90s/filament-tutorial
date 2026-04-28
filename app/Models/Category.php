@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
@@ -13,6 +14,8 @@ use Illuminate\Support\Carbon;
  * @property string $slug
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
+ * @property-read Collection<int, Post> $posts
+ * @property-read int|null $posts_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category newQuery()
@@ -28,9 +31,6 @@ use Illuminate\Support\Carbon;
 #[Fillable(['name', 'slug'])]
 class Category extends Model
 {
-    /**
-     * @return HasMany
-     */
     public function posts(): HasMany
     {
         return $this->hasMany(Post::class);

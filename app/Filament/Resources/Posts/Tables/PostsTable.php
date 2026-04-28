@@ -41,7 +41,7 @@ class PostsTable
                     ->label('Creation Date')
                     ->schema([
                         DatePicker::make('created_at')
-                            ->label('Select Date')
+                            ->label('Select Date'),
                     ])
                     ->query(function ($query, $data) {
                         return $query->when($data['created_at'], function ($q, $date) {
@@ -51,14 +51,14 @@ class PostsTable
                 SelectFilter::make('category_id')
                     ->label('Select Category')
                     ->relationship('category', 'name')
-                    ->preload()
+                    ->preload(),
             ])
             ->recordActions([
-                Action::make("Status")
-                    ->label("Change Status")
+                Action::make('Status')
+                    ->label('Change Status')
                     ->icon(Heroicon::ClipboardDocumentCheck)
                     ->schema([
-                        Checkbox::make('is_published')
+                        Checkbox::make('is_published'),
                     ])
                     ->fillForm(fn (Post $record) => [
                         'is_published' => $record->is_published,
@@ -66,11 +66,10 @@ class PostsTable
                     ->action(function (array $data, Post $record) {
                         $record->is_published = $data['is_published'];
                         $record->save();
-                    })
-                ,
+                    }),
                 ReplicateAction::make()
                     ->beforeReplicaSaved(function ($replica) {
-                        $replica->slug = $replica->slug . '-copy-' . now()->timestamp;
+                        $replica->slug = $replica->slug.'-copy-'.now()->timestamp;
                     }),
                 EditAction::make(),
                 DeleteAction::make(),

@@ -16,8 +16,8 @@ class ProductInfolist
         return $schema
             ->components([
                 Tabs::make('Tabs')->tabs([
-                    Tabs\Tab::make("Product Information")
-                        ->icon(HeroIcon::InformationCircle)
+                    Tabs\Tab::make('Product Information')
+                        ->icon(Heroicon::InformationCircle)
                         ->schema([
                             TextEntry::make('id')
                                 ->label('Product Id')
@@ -40,10 +40,10 @@ class ProductInfolist
                                 ->label('Product Creation Date')
                                 ->weight('bold')
                                 ->color('info')
-                                ->date('m/d/Y')
+                                ->date('m/d/Y'),
                         ]),
-                    Tabs\Tab::make("Pricing & Stock")
-                        ->icon(HeroIcon::CurrencyDollar)
+                    Tabs\Tab::make('Pricing & Stock')
+                        ->icon(Heroicon::CurrencyDollar)
                         ->badge(10)
                         ->badgeColor('info')
                         ->schema([
@@ -57,8 +57,8 @@ class ProductInfolist
                                 ->weight('bold')
                                 ->color('primary'),
                         ]),
-                    Tabs\Tab::make("Media & Status")
-                        ->icon(HeroIcon::Photo)
+                    Tabs\Tab::make('Media & Status')
+                        ->icon(Heroicon::Photo)
                         ->schema([
                             ImageEntry::make('image')
                                 ->label('Product Image')
@@ -69,10 +69,10 @@ class ProductInfolist
                             IconEntry::make('is_featured')
                                 ->label('Is Featured?')
                                 ->boolean(),
-                        ])
+                        ]),
                 ])
-                    ->columnSpanFull()
-//                    ->vertical()
+                    ->columnSpanFull(),
+                //                    ->vertical()
             ]);
     }
 }

@@ -32,7 +32,7 @@ class PostsRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('title')->searchable(),
                 TextColumn::make('slug')->searchable(),
-                TextColumn::make('created_at')->searchable()->dateTime()
+                TextColumn::make('created_at')->searchable()->dateTime(),
             ])
             ->filters([
                 //
