@@ -24,10 +24,10 @@ class NewRegisteredUsersWidget extends TableWidget
         $endDate = $this->pageFilters['endDate'] ?? null;
 
         return $table
-            ->query(fn(): Builder => User::query()
-                ->when($startDate, fn(Builder $query) => $query
+            ->query(fn (): Builder => User::query()
+                ->when($startDate, fn (Builder $query) => $query
                     ->whereDate('created_at', '>=', $startDate))
-                ->when($endDate, fn(Builder $query) => $query
+                ->when($endDate, fn (Builder $query) => $query
                     ->whereDate('created_at', '<=', $endDate))
                 ->latest()
                 ->take(10))
