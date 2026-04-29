@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
@@ -25,5 +26,8 @@ use Illuminate\Support\Carbon;
 #[Fillable(['name'])]
 class Country extends Model
 {
-    //
+    public function states(): HasMany
+    {
+        return $this->hasMany(State::class);
+    }
 }
