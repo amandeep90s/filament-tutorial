@@ -22,6 +22,12 @@ class CountryResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static string|\UnitEnum|null $navigationGroup = "Locations";
+
+    protected static ?int $navigationSort = 3;
+
+    protected static ?string $modelLabel = "Manage Countries";
+
     public static function form(Schema $schema): Schema
     {
         return CountryForm::configure($schema);

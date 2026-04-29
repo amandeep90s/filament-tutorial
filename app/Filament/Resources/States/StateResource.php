@@ -22,6 +22,12 @@ class StateResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static string|\UnitEnum|null $navigationGroup = "Locations";
+
+    protected static ?int $navigationSort = 2;
+
+    protected static ?string $modelLabel = "Manage States";
+
     public static function form(Schema $schema): Schema
     {
         return StateForm::configure($schema);
