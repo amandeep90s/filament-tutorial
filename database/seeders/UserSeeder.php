@@ -25,6 +25,7 @@ class UserSeeder extends Seeder
             'country_id' => $usCountry?->id,
             'state_id' => $caState?->id,
             'city_id' => $laCity?->id,
+            'role' => 'admin',
         ]);
 
         // Additional test users
@@ -35,6 +36,7 @@ class UserSeeder extends Seeder
                 'country' => 'United Kingdom',
                 'state' => 'England',
                 'city' => 'London',
+                'role' => 'manager',
             ],
             [
                 'name' => 'Raj Patel',
@@ -42,6 +44,7 @@ class UserSeeder extends Seeder
                 'country' => 'India',
                 'state' => 'Maharashtra',
                 'city' => 'Mumbai',
+                'role' => 'manager',
             ],
             [
                 'name' => 'Sophie Müller',

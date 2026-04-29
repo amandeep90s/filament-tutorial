@@ -15,10 +15,9 @@ use Illuminate\Support\Carbon;
  * @property int $country_id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Collection<int, City> $cities
+ * @property-read Collection<int, \App\Models\City> $cities
  * @property-read int|null $cities_count
- * @property-read Country $country
- *
+ * @property-read \App\Models\Country $country
  * @method static \Illuminate\Database\Eloquent\Builder<static>|State newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|State newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|State query()
@@ -27,7 +26,6 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|State whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|State whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|State whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 #[Fillable(['name', 'country_id'])]

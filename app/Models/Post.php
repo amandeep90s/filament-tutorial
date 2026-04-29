@@ -21,10 +21,9 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $published_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property-read Category $category
- * @property-read Collection<int, Tag> $tags
+ * @property-read \App\Models\Category $category
+ * @property-read Collection<int, \App\Models\Tag> $tags
  * @property-read int|null $tags_count
- *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post query()
@@ -39,7 +38,6 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereUpdatedAt($value)
- *
  * @mixin \Eloquent
  */
 #[Fillable(['title', 'slug', 'category_id', 'color', 'image', 'body', 'is_published', 'published_at'])]

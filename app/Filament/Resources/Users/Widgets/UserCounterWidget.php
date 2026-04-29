@@ -17,13 +17,13 @@ class UserCounterWidget extends StatsOverviewWidget
                 ->description('All registered users')
                 ->descriptionIcon(Heroicon::Users, IconPosition::Before)
                 ->color('success'),
-            Stat::make('Total Users from India', User::whereHas('country', fn($query) => $query
+            Stat::make('Total Users from India', User::whereHas('country', fn ($query) => $query
                 ->where('name', 'India'))
                 ->count())
                 ->description('All registered users in India')
                 ->descriptionIcon(Heroicon::OutlinedFlag, IconPosition::Before)
                 ->color('danger'),
-            Stat::make('Total Users from United States', User::whereHas('country', fn($query) => $query
+            Stat::make('Total Users from United States', User::whereHas('country', fn ($query) => $query
                 ->where('name', 'United States'))
                 ->count())
                 ->description('All registered users in United States')
