@@ -27,11 +27,12 @@ use Illuminate\Support\Carbon;
  * @property int $country_id
  * @property int $state_id
  * @property int $city_id
- * @property-read \App\Models\City $city
- * @property-read \App\Models\Country $country
+ * @property-read City $city
+ * @property-read Country $country
  * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
- * @property-read \App\Models\State $state
+ * @property-read State $state
+ *
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
@@ -48,6 +49,7 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRole($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereStateId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ *
  * @mixin \Eloquent
  */
 #[Fillable(['name', 'email', 'password', 'country_id', 'state_id', 'city_id', 'role'])]
