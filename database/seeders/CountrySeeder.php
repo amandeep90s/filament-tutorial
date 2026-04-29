@@ -25,4 +25,3 @@ class CountrySeeder extends Seeder
         }
     }
 }
-

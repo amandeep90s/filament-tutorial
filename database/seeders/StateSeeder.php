@@ -50,7 +50,7 @@ class StateSeeder extends Seeder
             if ($country) {
                 foreach ($stateNames as $stateName) {
                     State::create([
-                        'name'       => $stateName,
+                        'name' => $stateName,
                         'country_id' => $country->id,
                     ]);
                 }
@@ -58,4 +58,3 @@ class StateSeeder extends Seeder
         }
     }
 }
-

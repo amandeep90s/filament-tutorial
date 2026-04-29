@@ -15,7 +15,7 @@ use Illuminate\Support\Carbon;
  * @property string $slug
  * @property int $category_id
  * @property string $color
- * @property string $image
+ * @property string|null $image
  * @property string $body
  * @property bool $is_published
  * @property Carbon|null $published_at

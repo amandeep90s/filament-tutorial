@@ -14,8 +14,11 @@ class UsersTable
     {
         return $table
             ->columns([
-                TextColumn::make('name'),
-                TextColumn::make('email'),
+                TextColumn::make('name')->sortable()->searchable(),
+                TextColumn::make('email')->sortable()->searchable(),
+                TextColumn::make('country.name')->sortable()->searchable(),
+                TextColumn::make('state.name')->sortable()->searchable(),
+                TextColumn::make('city.name')->sortable()->searchable(),
             ])
             ->filters([
                 //

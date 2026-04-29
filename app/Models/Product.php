@@ -13,7 +13,7 @@ use Illuminate\Support\Carbon;
  * @property string $description
  * @property float $price
  * @property int $stock
- * @property string $image
+ * @property string|null $image
  * @property int $is_active
  * @property int $is_featured
  * @property Carbon|null $created_at
