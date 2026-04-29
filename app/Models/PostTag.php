@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * @property int $post_id
  * @property int $tag_id
+ * @property-read Post $post
+ * @property-read Tag $tag
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PostTag newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|PostTag newQuery()

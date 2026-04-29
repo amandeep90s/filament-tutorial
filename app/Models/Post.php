@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -21,6 +22,8 @@ use Illuminate\Support\Carbon;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property-read Category $category
+ * @property-read Collection<int, Tag> $tags
+ * @property-read int|null $tags_count
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post newQuery()

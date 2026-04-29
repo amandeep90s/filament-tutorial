@@ -48,10 +48,10 @@ class TagsRelationManager extends RelationManager
                 DeleteAction::make(),
             ])
             ->toolbarActions([
-//                BulkActionGroup::make([
-//                    DetachBulkAction::make(),
-//                    DeleteBulkAction::make(),
-//                ]),
+                //                BulkActionGroup::make([
+                //                    DetachBulkAction::make(),
+                //                    DeleteBulkAction::make(),
+                //                ]),
             ]);
     }
 }
