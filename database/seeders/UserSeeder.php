@@ -52,6 +52,7 @@ class UserSeeder extends Seeder
                 'country' => 'Germany',
                 'state' => 'Bavaria',
                 'city' => 'Munich',
+                'role' => 'user',
             ],
             [
                 'name' => 'Liam Thompson',
@@ -59,6 +60,7 @@ class UserSeeder extends Seeder
                 'country' => 'Canada',
                 'state' => 'Ontario',
                 'city' => 'Toronto',
+                'role' => 'user',
             ],
             [
                 'name' => 'Chloe Dupont',
@@ -66,6 +68,7 @@ class UserSeeder extends Seeder
                 'country' => 'France',
                 'state' => 'Île-de-France',
                 'city' => 'Paris',
+                'role' => 'user',
             ],
         ];
 
@@ -81,6 +84,7 @@ class UserSeeder extends Seeder
                 'country_id' => $country?->id,
                 'state_id' => $state?->id,
                 'city_id' => $city?->id,
+                'role' => $userData['role'],
             ]);
         }
     }

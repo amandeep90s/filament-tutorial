@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Users\Tables;
+namespace App\Filament\Manager\Resources\Users\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
@@ -14,16 +14,16 @@ class UsersTable
     {
         return $table
             ->columns([
-                TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('email')->sortable()->searchable(),
-                TextColumn::make('role')->sortable()->searchable()->formatStateUsing(fn ($state) => strtoupper($state)),
-                TextColumn::make('country.name')->sortable()->searchable(),
-                TextColumn::make('state.name')->sortable()->searchable(),
-                TextColumn::make('city.name')->sortable()->searchable(),
+                TextColumn::make('id')->label('ID'),
+                TextColumn::make('name')->label('Name'),
+                TextColumn::make('email')->label('Email'),
+                TextColumn::make('role')->label('Role')->formatStateUsing(fn($state) => strtoupper($state)),
+                TextColumn::make('created_at')->label('Creation Date')->dateTime(),
             ])
             ->filters([
                 //
             ])
+            ->modifyQueryUsing(fn($query) => $query->whereIn('role', ['manager', 'user']))
             ->recordActions([
                 EditAction::make(),
             ])
