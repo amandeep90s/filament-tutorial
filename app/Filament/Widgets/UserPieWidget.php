@@ -8,6 +8,8 @@ class UserPieWidget extends ChartWidget
 {
     protected ?string $heading = 'User Pie Widget';
 
+    protected static ?int $sort = 3;
+
     protected function getData(): array
     {
         return [
