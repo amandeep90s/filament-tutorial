@@ -24,6 +24,8 @@ class TagResource extends Resource
 
     protected static string|\UnitEnum|null $navigationGroup = "Blog";
 
+    protected static ?string $navigationParentItem = "Posts";
+
     public static function getNavigationBadge(): ?string
     {
         return Tag::count();
