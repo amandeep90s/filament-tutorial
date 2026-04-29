@@ -22,9 +22,9 @@ class UserForm
                         TextInput::make('email')->required()->email(),
                         TextInput::make('password')
                             ->password()
-                            ->dehydrated(fn($state) => filled($state))
-                            ->dehydrateStateUsing(fn($state) => bcrypt($state))
-                            ->required(fn(string $operation) => $operation === 'create')
+                            ->dehydrated(fn ($state) => filled($state))
+                            ->dehydrateStateUsing(fn ($state) => bcrypt($state))
+                            ->required(fn (string $operation) => $operation === 'create')
                             ->placeholder('Leave blank to keep current password'),
                     ]),
                 Section::make('Location')
@@ -44,7 +44,7 @@ class UserForm
                             ->options(function (callable $get) {
                                 $country = $get('country_id');
 
-                                if (!$country) {
+                                if (! $country) {
                                     return [];
                                 }
 
@@ -62,7 +62,7 @@ class UserForm
                             ->options(function (callable $get) {
                                 $state = $get('state_id');
 
-                                if (!$state) {
+                                if (! $state) {
                                     return [];
                                 }
 

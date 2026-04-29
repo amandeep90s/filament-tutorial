@@ -25,7 +25,7 @@ class PostResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'title';
 
-    protected static string|\UnitEnum|null $navigationGroup = "Blog";
+    protected static string|\UnitEnum|null $navigationGroup = 'Blog';
 
     public static function getGloballySearchableAttributes(): array
     {
@@ -35,8 +35,8 @@ class PostResource extends Resource
     public static function getGlobalSearchResultDetails(Model $record): array
     {
         return [
-            "Slug" => $record->slug,
-            "Category" => $record->category->name,
+            'Slug' => $record->slug,
+            'Category' => $record->category->name,
         ];
     }
 

@@ -24,7 +24,7 @@ class ProductResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static string|\UnitEnum|null $navigationGroup = "Catalog";
+    protected static string|\UnitEnum|null $navigationGroup = 'Catalog';
 
     public static function form(Schema $schema): Schema
     {

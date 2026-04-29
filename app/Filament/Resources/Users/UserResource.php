@@ -22,7 +22,7 @@ class UserResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static string|\UnitEnum|null $navigationGroup = "Customers";
+    protected static string|\UnitEnum|null $navigationGroup = 'Customers';
 
     public static function form(Schema $schema): Schema
     {

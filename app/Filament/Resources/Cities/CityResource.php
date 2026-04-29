@@ -22,11 +22,11 @@ class CityResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
-    protected static string|\UnitEnum|null $navigationGroup = "Locations";
+    protected static string|\UnitEnum|null $navigationGroup = 'Locations';
 
     protected static ?int $navigationSort = 1;
 
-    protected static ?string $modelLabel = "Manage Cities";
+    protected static ?string $modelLabel = 'Manage Cities';
 
     public static function getNavigationBadge(): ?string
     {
@@ -35,7 +35,7 @@ class CityResource extends Resource
 
     public static function getNavigationBadgeColor(): string|array|null
     {
-        return "success";
+        return 'success';
     }
 
     public static function form(Schema $schema): Schema
