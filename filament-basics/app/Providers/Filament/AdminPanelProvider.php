@@ -4,6 +4,7 @@ namespace App\Providers\Filament;
 
 use Filament\Auth\MultiFactor\App\AppAuthentication;
 use Filament\Auth\MultiFactor\Email\EmailAuthentication;
+use Filament\Enums\ThemeMode;
 use Filament\FontProviders\GoogleFontProvider;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -29,12 +30,12 @@ class AdminPanelProvider extends PanelProvider
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()
             ->colors([
-                'primary'   => '#0052CC',
-                'secondary' => '#42526E',
-                'success'   => '#00875A',
-                'danger'    => '#DE350B',
-                'warning'   => '#FF991F',
-                'info'      => '#00B8D9',
+                'primary'   => '#4285F4',
+                'secondary' => '#424242',
+                'success'   => '#34A853',
+                'danger'    => '#EA4335',
+                'warning'   => '#FBBC05',
+                'info'      => '#008080',
             ])
             ->brandName(config('app.name'))
             ->brandLogo(asset('images/logo.png'))
@@ -75,6 +76,7 @@ class AdminPanelProvider extends PanelProvider
                 EmailAuthentication::make()
                     ->codeExpiryMinutes(2),
             ], isRequired: true)
-            ->databaseNotifications();
+            ->databaseNotifications()
+            ->defaultThemeMode(ThemeMode::Light);
     }
 }
