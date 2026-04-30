@@ -14,6 +14,10 @@ class UserObserver
     {
         $recipient = auth()->user();
 
+        if (! $recipient) {
+            return;
+        }
+
         Notification::make()
             ->title('New User created')
             ->body($user->name.' has been created')

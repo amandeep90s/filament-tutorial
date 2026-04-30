@@ -33,8 +33,7 @@ class PostForm
                                     ->live(onBlur: true)
                                     ->afterStateUpdated(function (string $operation, string $state, Set $set) {
                                         $set('slug', Str::slug($state));
-                                    })
-                                ,
+                                    }),
                                 TextInput::make('slug')
                                     ->rules(['required'])
                                     ->unique()
