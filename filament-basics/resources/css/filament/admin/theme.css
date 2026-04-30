@@ -1,0 +1,13 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+@theme {
+    --color-main-primary: #0052CC;
+    --color-main-secondary: #42526E;
+    --color-main-success: #00875A;
+    --color-main-danger: #DE350B;
+    --color-main-warning: #FF991F;
+    --color-main-info: #00B8D9;
+}
