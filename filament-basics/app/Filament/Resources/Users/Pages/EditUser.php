@@ -16,13 +16,13 @@ class EditUser extends EditRecord
     {
         return [
             DeleteAction::make()
-            ->successNotification(
-                Notification::make()
-                    ->title('User deleted successfully.')
-                    ->body('The user has been deleted.')
-                    ->icon(Heroicon::OutlinedCheckCircle)
-                    ->success()
-            )
+                ->successNotification(
+                    Notification::make()
+                        ->title('User deleted successfully.')
+                        ->body('The user has been deleted.')
+                        ->icon(Heroicon::OutlinedCheckCircle)
+                        ->success()
+                ),
         ];
     }
 

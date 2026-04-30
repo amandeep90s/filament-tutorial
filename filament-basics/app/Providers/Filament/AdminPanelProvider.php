@@ -63,6 +63,7 @@ class AdminPanelProvider extends PanelProvider
                     ->regenerableRecoveryCodes(false),
                 EmailAuthentication::make()
                     ->codeExpiryMinutes(2),
-            ], isRequired: true);
+            ], isRequired: true)
+            ->databaseNotifications();
     }
 }
