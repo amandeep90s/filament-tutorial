@@ -22,6 +22,8 @@ class CategoryResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'name';
 
+    protected static ?string $tenantOwnershipRelationshipName = 'team';
+
     public static function form(Schema $schema): Schema
     {
         return CategoryForm::configure($schema);
