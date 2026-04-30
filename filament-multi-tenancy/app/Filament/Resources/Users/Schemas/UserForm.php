@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Users\Schemas;
 
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -20,6 +21,15 @@ class UserForm
                 TextInput::make('password')
                     ->password()
                     ->required(),
+                Select::make('teams')
+                    ->label('Company')
+                    ->relationship('teams', 'name')
+                    ->preload()
+                    ->multiple(false)
+                    ->createOptionForm([
+                        TextInput::make('name'),
+                        TextInput::make('slug'),
+                    ]),
             ]);
     }
 }

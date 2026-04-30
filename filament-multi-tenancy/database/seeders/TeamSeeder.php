@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Team;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class TeamSeeder extends Seeder
@@ -31,4 +30,3 @@ class TeamSeeder extends Seeder
         }
     }
 }
-

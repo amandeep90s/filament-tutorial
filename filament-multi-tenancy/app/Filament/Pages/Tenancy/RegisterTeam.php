@@ -19,7 +19,7 @@ class RegisterTeam extends RegisterTenant
         return $schema
             ->components([
                 TextInput::make('name')->rules(['required']),
-                TextInput::make('slug')->rules(['required'])->unique()
+                TextInput::make('slug')->rules(['required'])->unique(),
             ]);
     }
 

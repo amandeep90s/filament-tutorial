@@ -2,7 +2,9 @@
 
 namespace App\Providers\Filament;
 
-use App\Http\Middleware\CheckSuperAdmin;
+use App\Filament\Pages\Tenancy\EditTeamProfile;
+use App\Http\Middleware\SetUserTeamTenant;
+use App\Models\Team;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -20,24 +22,23 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdminPanelProvider extends PanelProvider
+class CompanyPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         return $panel
-            ->default()
-            ->id('admin')
-            ->path('admin')
+            ->id('company')
+            ->path('company')
             ->login()
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
+            ->discoverResources(in: app_path('Filament/Company/Resources'), for: 'App\Filament\Company\Resources')
+            ->discoverPages(in: app_path('Filament/Company/Pages'), for: 'App\Filament\Company\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            ->discoverWidgets(in: app_path('Filament/Company/Widgets'), for: 'App\Filament\Company\Widgets')
             ->widgets([
                 AccountWidget::class,
                 FilamentInfoWidget::class,
@@ -52,14 +53,12 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                CheckSuperAdmin::class
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
-        // ->tenant(Team::class, ownershipRelationship: 'teams')
-        // ->tenantRegistration(RegisterTeam::class)
-        // ->tenantProfile(EditTeamProfile::class)
-        // ->registration();
+            ])
+            ->tenant(Team::class, ownershipRelationship: 'teams')
+            ->tenantProfile(EditTeamProfile::class)
+            ->tenantMiddleware([SetUserTeamTenant::class]);
     }
 }

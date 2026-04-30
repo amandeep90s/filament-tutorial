@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('team_users', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('team_id')->constrained('teams')->cascadeOnDelete();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('is_superadmin')->default(false);
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('team_users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('is_superadmin');
+        });
     }
 };
