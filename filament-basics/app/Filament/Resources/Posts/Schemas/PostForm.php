@@ -11,8 +11,10 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\Group;
 use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Support\Str;
 
 class PostForm
 {
@@ -27,7 +29,12 @@ class PostForm
                         Group::make()
                             ->schema([
                                 TextInput::make('title')
-                                    ->rules(['required', 'min:3', 'max:255']),
+                                    ->rules(['required', 'min:3', 'max:255'])
+                                    ->live(onBlur: true)
+                                    ->afterStateUpdated(function (string $operation, string $state, Set $set) {
+                                        $set('slug', Str::slug($state));
+                                    })
+                                ,
                                 TextInput::make('slug')
                                     ->rules(['required'])
                                     ->unique()
