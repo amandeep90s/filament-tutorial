@@ -342,6 +342,13 @@
       <path value="$PROJECT_DIR$/filament-basics/vendor/composer" />
       <path value="$PROJECT_DIR$/filament-basics/vendor/saade/filament-fullcalendar" />
       <path value="$PROJECT_DIR$/filament-basics/vendor/_laravel_idea" />
+      <path value="$PROJECT_DIR$/filament-basics/vendor/dompdf/php-font-lib" />
+      <path value="$PROJECT_DIR$/filament-basics/vendor/dompdf/php-svg-lib" />
+      <path value="$PROJECT_DIR$/filament-basics/vendor/masterminds/html5" />
+      <path value="$PROJECT_DIR$/filament-basics/vendor/dompdf/dompdf" />
+      <path value="$PROJECT_DIR$/filament-basics/vendor/thecodingmachine/safe" />
+      <path value="$PROJECT_DIR$/filament-basics/vendor/sabberworm/php-css-parser" />
+      <path value="$PROJECT_DIR$/filament-basics/vendor/barryvdh/laravel-dompdf" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3">

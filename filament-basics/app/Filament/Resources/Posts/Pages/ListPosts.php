@@ -3,8 +3,11 @@
 namespace App\Filament\Resources\Posts\Pages;
 
 use App\Filament\Resources\Posts\PostResource;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Support\Icons\Heroicon;
 
 class ListPosts extends ListRecords
 {
@@ -14,6 +17,19 @@ class ListPosts extends ListRecords
     {
         return [
             CreateAction::make(),
+            Action::make('generate_pdf')
+                ->label('Generate PDF')
+                ->icon(Heroicon::DocumentCheck)
+                ->action(function ($livewire) {
+                    $records = $livewire->getFilteredTableQuery()->get();
+
+                    $pdf = Pdf::loadView('pdf.posts', ['posts' => $records]);
+
+                    return response()->streamDownload(
+                        fn () => print($pdf->output()),
+                        'posts-list.pdf'
+                    );
+                })
         ];
     }
 }
