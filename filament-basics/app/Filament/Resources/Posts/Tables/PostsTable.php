@@ -26,15 +26,42 @@ class PostsTable
     {
         return $table
             ->columns([
-                TextColumn::make('id')->label('ID')->toggleable(isToggledHiddenByDefault: true),
-                ImageColumn::make('image')->disk('public')->toggleable(),
-                TextColumn::make('title')->sortable()->searchable()->toggleable(),
-                TextColumn::make('slug')->sortable()->searchable()->toggleable(),
-                TextColumn::make('category.name')->label('Category')->sortable()->searchable()->toggleable(),
-                ColorColumn::make('color')->label('Color')->toggleable(),
-                TextColumn::make('created_at')->label('Created At')->dateTime()->sortable()->toggleable(),
-                TextColumn::make('tags')->label('Tags')->toggleable(isToggledHiddenByDefault: true),
-                IconColumn::make('is_published')->label('Published')->toggleable(isToggledHiddenByDefault: true),
+                TextColumn::make('id')
+                    ->label('ID')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                ImageColumn::make('image')
+                    ->disk('public')
+                    ->toggleable(),
+                TextColumn::make('title')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(),
+                TextColumn::make('slug')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(),
+                TextColumn::make('comments_count')
+                    ->counts('comments')
+                    ->label('Comments'),
+                TextColumn::make('category.name')
+                    ->label('Category')
+                    ->sortable()
+                    ->searchable()
+                    ->toggleable(),
+                ColorColumn::make('color')
+                    ->label('Color')
+                    ->toggleable(),
+                TextColumn::make('created_at')
+                    ->label('Created At')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(),
+                TextColumn::make('tags')
+                    ->label('Tags')
+                    ->toggleable(isToggledHiddenByDefault: true),
+                IconColumn::make('is_published')
+                    ->label('Published')
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])->defaultSort('title', 'asc')
             ->filters([
                 Filter::make('created_at')

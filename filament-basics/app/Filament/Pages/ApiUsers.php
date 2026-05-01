@@ -18,12 +18,13 @@ class ApiUsers extends Page implements HasTable
     protected static ?string $title = 'Api Users';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Users;
+
     protected string $view = 'filament.pages.api-users';
 
     public function table(Table $table): Table
     {
         return $table
-            ->records(fn() => $this->apiData())
+            ->records(fn () => $this->apiData())
             ->columns([
                 TextColumn::make('id'),
                 TextColumn::make('name'),
