@@ -11,8 +11,7 @@ use Saade\FilamentFullCalendar\Widgets\FullCalendarWidget;
 
 class CalendarWidget extends FullCalendarWidget
 {
-
-    public Model | string | null $model = Event::class;
+    public Model|string|null $model = Event::class;
 
     /**
      * FullCalendar will call this function whenever it needs new event data.
@@ -21,6 +20,7 @@ class CalendarWidget extends FullCalendarWidget
     public function fetchEvents(array $fetchInfo): array
     {
         info($fetchInfo);
+
         // You can use $fetchInfo to filter events by date.
         // This method should return an array of event-like objects. See: https://github.com/saade/filament-fullcalendar/blob/3.x/#returning-events
         // You can also return an array of EventData objects. See: https://github.com/saade/filament-fullcalendar/blob/3.x/#the-eventdata-class

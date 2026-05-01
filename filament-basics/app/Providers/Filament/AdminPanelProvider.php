@@ -31,18 +31,18 @@ class AdminPanelProvider extends PanelProvider
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login()
             ->colors([
-                'primary'   => '#4285F4',
+                'primary' => '#4285F4',
                 'secondary' => '#424242',
-                'success'   => '#34A853',
-                'danger'    => '#EA4335',
-                'warning'   => '#FBBC05',
-                'info'      => '#008080',
+                'success' => '#34A853',
+                'danger' => '#EA4335',
+                'warning' => '#FBBC05',
+                'info' => '#008080',
             ])
             ->brandName(config('app.name'))
             ->brandLogo(asset('images/logo.png'))
             ->favicon(asset('images/favicon.ico'))
             ->darkMode(true)
-            ->font('Geist', provider:GoogleFontProvider::class)
+            ->font('Geist', provider: GoogleFontProvider::class)
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
@@ -80,7 +80,7 @@ class AdminPanelProvider extends PanelProvider
             ->databaseNotifications()
             ->defaultThemeMode(ThemeMode::Light)
             ->plugins([
-                FilamentFullCalendarPlugin::make()
+                FilamentFullCalendarPlugin::make(),
             ]);
     }
 }

@@ -15,15 +15,16 @@ use Filament\Tables\Contracts\HasTable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 
-class Reports extends Page implements  HasTable
+class Reports extends Page implements HasTable
 {
     use InteractsWithTable;
 
-    protected static string | BackedEnum | null $navigationIcon = Heroicon::DocumentCheck;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::DocumentCheck;
 
     protected static ?string $navigationLabel = 'Reports';
 
     protected static ?string $title = 'User Reports';
+
     protected static ?SubNavigationPosition $subNavigationPosition = SubNavigationPosition::End;
 
     protected string $view = 'filament.pages.reports';
@@ -36,7 +37,7 @@ class Reports extends Page implements  HasTable
     public function getHeaderWidgets(): array
     {
         return [
-            TodayUserStats::class
+            TodayUserStats::class,
         ];
     }
 
