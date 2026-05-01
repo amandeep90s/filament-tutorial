@@ -33,6 +33,7 @@ class PostsTable
                     ->disk('public')
                     ->toggleable(),
                 TextColumn::make('title')
+                    ->label(__('resource.post.title'))
                     ->sortable()
                     ->searchable()
                     ->toggleable(),
