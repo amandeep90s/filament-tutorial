@@ -5,7 +5,9 @@ namespace App\Filament\Pages;
 use App\Filament\Widgets\TodayUserStats;
 use App\Models\User;
 use BackedEnum;
+use Filament\Pages\Enums\SubNavigationPosition;
 use Filament\Pages\Page;
+use Filament\Support\Enums\Width;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -22,8 +24,14 @@ class Reports extends Page implements  HasTable
     protected static ?string $navigationLabel = 'Reports';
 
     protected static ?string $title = 'User Reports';
+    protected static ?SubNavigationPosition $subNavigationPosition = SubNavigationPosition::End;
 
     protected string $view = 'filament.pages.reports';
+
+    public function getMaxContentWidth(): Width
+    {
+        return Width::Full;
+    }
 
     public function getHeaderWidgets(): array
     {
