@@ -18,6 +18,7 @@ use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Saade\FilamentFullCalendar\FilamentFullCalendarPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -77,6 +78,9 @@ class AdminPanelProvider extends PanelProvider
                     ->codeExpiryMinutes(2),
             ], isRequired: true)
             ->databaseNotifications()
-            ->defaultThemeMode(ThemeMode::Light);
+            ->defaultThemeMode(ThemeMode::Light)
+            ->plugins([
+                FilamentFullCalendarPlugin::make()
+            ]);
     }
 }

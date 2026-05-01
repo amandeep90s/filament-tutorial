@@ -332,6 +332,7 @@
       <excludeFolder url="file://$MODULE_DIR$/filament-basics/vendor/_laravel_idea" />
       <excludeFolder url="file://$MODULE_DIR$/filament-multi-tenancy/vendor/barryvdh/laravel-ide-helper" />
       <excludeFolder url="file://$MODULE_DIR$/filament-multi-tenancy/vendor/barryvdh/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/filament-basics/vendor/saade/filament-fullcalendar" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

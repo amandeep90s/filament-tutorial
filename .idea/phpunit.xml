@@ -4,6 +4,7 @@
     <option name="directories">
       <list>
         <option value="$PROJECT_DIR$/filament-multi-tenancy/tests" />
+        <option value="$PROJECT_DIR$/filament-basics/tests" />
       </list>
     </option>
   </component>
