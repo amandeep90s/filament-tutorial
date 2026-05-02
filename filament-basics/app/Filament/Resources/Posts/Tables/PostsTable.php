@@ -25,6 +25,12 @@ class PostsTable
     public static function configure(Table $table): Table
     {
         return $table
+            ->persistColumnSearchesInSession()
+            ->persistFiltersInSession()
+            ->persistSortInSession()
+            ->deferLoading()
+            ->groups(['category.name', 'is_published'])
+            ->defaultGroup('category.name')
             ->columns([
                 TextColumn::make('id')
                     ->label('ID')
@@ -35,7 +41,7 @@ class PostsTable
                 TextColumn::make('title')
                     ->label(__('resource.post.title'))
                     ->sortable()
-                    ->searchable()
+                    ->searchable(isIndividual: true)
                     ->toggleable(),
                 TextColumn::make('slug')
                     ->sortable()
@@ -51,12 +57,14 @@ class PostsTable
                     ->toggleable(),
                 ColorColumn::make('color')
                     ->label('Color')
-                    ->toggleable(),
+                    ->toggleable()
+                    ->tooltip(fn ($state) => "The color is: {$state}"),
                 TextColumn::make('created_at')
                     ->label('Created At')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(),
+                    ->toggleable()
+                    ->alignEnd(),
                 TextColumn::make('tags')
                     ->label('Tags')
                     ->toggleable(isToggledHiddenByDefault: true),
